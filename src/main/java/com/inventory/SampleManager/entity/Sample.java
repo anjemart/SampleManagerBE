@@ -1,6 +1,5 @@
 package com.inventory.SampleManager.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 
 import javax.persistence.Entity;

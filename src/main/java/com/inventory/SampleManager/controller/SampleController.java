@@ -7,7 +7,6 @@ import com.inventory.SampleManager.entity.Sample;
 import com.inventory.SampleManager.repository.CustomerRepository;
 import com.inventory.SampleManager.repository.SampleRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 

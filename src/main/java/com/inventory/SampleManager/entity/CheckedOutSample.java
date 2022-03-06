@@ -1,6 +1,5 @@
 package com.inventory.SampleManager.entity;
 
-import javax.persistence.Entity;
 import java.time.OffsetDateTime;
 
 
