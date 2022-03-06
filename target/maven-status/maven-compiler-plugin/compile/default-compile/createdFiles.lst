@@ -1,0 +1,6 @@
+com/inventory/SampleManager/controller/SampleController.class
+com/inventory/SampleManager/repository/SampleRepository.class
+com/inventory/SampleManager/entity/Sample$SampleBuilder.class
+com/inventory/SampleManager/SampleManagerApplication.class
+com/inventory/SampleManager/service/SampleService.class
+com/inventory/SampleManager/entity/Sample.class

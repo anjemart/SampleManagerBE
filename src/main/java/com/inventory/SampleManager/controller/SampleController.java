@@ -2,14 +2,14 @@ package com.inventory.SampleManager.controller;
 
 
 import com.google.gson.Gson;
+import com.inventory.SampleManager.entity.Customer;
 import com.inventory.SampleManager.entity.Sample;
+import com.inventory.SampleManager.repository.CustomerRepository;
 import com.inventory.SampleManager.repository.SampleRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -17,21 +17,44 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SampleController {
 
     private final SampleRepository sampleRepository;
+    private final CustomerRepository customerRepository;
 
-    @GetMapping("/")
+    @GetMapping("/getSamples")
     @ResponseBody
     public String getSamples() {
-        Sample sample = Sample.builder()
-                .externalId("123456")
-                .name("berber")
-                .build();
-        sampleRepository.save(sample);
         return new Gson().toJson(sampleRepository.findAll());
-        //return "Working";
     }
 
-    @PostMapping("/")
-    public String addSample() {
-        return "";
+    @PostMapping(path = "/addSample")
+    @ResponseBody
+    public String addSample(@RequestBody Sample sample) {
+        sampleRepository.save(sample);
+        return "Success";
+    }
+
+    @GetMapping("/getCustomers")
+    @ResponseBody
+    public String getCustomers() {
+        return new Gson().toJson(customerRepository.findAll());
+    }
+
+    @PostMapping(path = "/addCustomer")
+    @ResponseBody
+    public String addCustomer(@RequestBody Customer customer) {
+        customerRepository.save(customer);
+        return "Success";
+    }
+
+    @GetMapping("/getCheckedOutSamples")
+    @ResponseBody
+    public String getCheckedOutSamples() {
+        return new Gson().toJson(customerRepository.findAll());
+    }
+
+    @PostMapping(path = "/addCheckedOutSamples")
+    @ResponseBody
+    public String addCheckedOutSamples(@RequestBody Customer customer) {
+        customerRepository.save(customer);
+        return "Success";
     }
 }
