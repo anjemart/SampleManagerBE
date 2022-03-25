@@ -15,8 +15,8 @@ create table if not exists customer(
     email varchar(100)
 );
 
-create table if not exists CheckedOutSample(
-    id int generated always as identity,
+create table if not exists checked_out_sample(
+    id int GENERATED ALWAYS AS IDENTITY,
     sample_id int,
     customer_id int,
     created_on timestamptz Default now(),
