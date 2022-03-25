@@ -9,5 +9,5 @@ import java.util.Optional;
 public interface SampleRepository extends JpaRepository<Sample, Integer> {
 
     @Query
-    public Optional<Sample> findByExternalId(String id);
+    Optional<Sample> findByExternalId(String id);
 }

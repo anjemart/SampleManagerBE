@@ -1,6 +1,8 @@
 package com.inventory.SampleManager.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.OffsetDateTime;
@@ -26,7 +28,9 @@ public class CheckedOutSample {
     @ToString.Exclude
     private Sample sample;
 
+    @CreatedDate
     private OffsetDateTime createdOn;
 
+    @LastModifiedDate
     private OffsetDateTime lastModifiedOn;
 }

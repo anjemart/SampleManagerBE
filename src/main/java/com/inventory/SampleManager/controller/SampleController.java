@@ -4,6 +4,7 @@ package com.inventory.SampleManager.controller;
 import com.google.gson.Gson;
 import com.inventory.SampleManager.entity.Customer;
 import com.inventory.SampleManager.entity.Sample;
+import com.inventory.SampleManager.entity.dto.RelationshipDto;
 import com.inventory.SampleManager.repository.CustomerRepository;
 import com.inventory.SampleManager.repository.SampleRepository;
 import com.inventory.SampleManager.service.SampleService;
@@ -48,16 +49,14 @@ public class SampleController {
 
     @GetMapping("/getCheckedOutSamples")
     @ResponseBody
-    //TODO: implement getting relationships
     public String getCheckedOutSamples() {
-        return "Not Implemented";
+        return new Gson().toJson(sampleService.getCheckedOutSamples());
     }
 
     @PostMapping(path = "/addCheckedOutSamples")
     @ResponseBody
-    //TODO: implement saving relationships
-    public String addCheckedOutSamples(@RequestBody Customer customer) {
-
+    public String addCheckedOutSamples(@RequestBody RelationshipDto relationshipRequest) {
+        sampleService.checkoutSample(relationshipRequest);
         return "Success";
     }
 }
