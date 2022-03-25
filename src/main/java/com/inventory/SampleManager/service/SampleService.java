@@ -66,8 +66,19 @@ public class SampleService {
 
         return checkedOutSamples;
     }
+    
+    public List<CheckedOutSample> markFollowedUp(List<Integer> relationshipIds) {
+        List<CheckedOutSample> checkedOutSamples = new ArrayList<>();
+        for(Integer relationshipId: relationshipIds) {
+            var checkedOutSample = checkedOutSampleRepository.findById(relationshipId).orElseThrow();
+            checkedOutSample = checkedOutSample.toBuilder().followedUp(true).build();
+            checkedOutSampleRepository.save(checkedOutSample);
+            checkedOutSamples.add(checkedOutSample);
+        }
+        return checkedOutSamples;
+    }
 
     public List<CheckedOutSample> getCheckedOutSamples() {
-        return checkedOutSampleRepository.findAll();
+        return checkedOutSampleRepository.findAllByOrderByFollowedUp();
     }
 }

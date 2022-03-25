@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 @Entity
-@Builder
+@Builder(toBuilder = true)
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Getter

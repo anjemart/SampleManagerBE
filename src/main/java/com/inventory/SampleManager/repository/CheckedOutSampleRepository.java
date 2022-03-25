@@ -16,5 +16,8 @@ public interface CheckedOutSampleRepository extends JpaRepository<CheckedOutSamp
     List<CheckedOutSample> findByFollowedUp(boolean followedUp);
 
     @Query
+    List<CheckedOutSample> findAllByOrderByFollowedUp();
+
+    @Query
     int countByFollowedUp(boolean followedUp);
 }

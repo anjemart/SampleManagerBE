@@ -13,6 +13,8 @@ import net.bytebuddy.asm.Advice;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
@@ -57,6 +59,13 @@ public class SampleController {
     @ResponseBody
     public String addCheckedOutSamples(@RequestBody RelationshipDto relationshipRequest) {
         sampleService.checkoutSample(relationshipRequest);
+        return "Success";
+    }
+
+    @PostMapping(path = "/markFollowedUp")
+    @ResponseBody
+    public String markFollowedUp(@RequestBody List<Integer> relationshipIds) {
+        sampleService.markFollowedUp(relationshipIds);
         return "Success";
     }
 }
