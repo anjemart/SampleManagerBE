@@ -33,4 +33,6 @@ public class CheckedOutSample {
 
     @LastModifiedDate
     private OffsetDateTime lastModifiedOn;
+
+    private boolean followedUp;
 }

@@ -57,6 +57,7 @@ public class SampleService {
                     .customer(customerRepository.getById(customerId))
                     .createdOn(OffsetDateTime.now())
                     .sample(sampleRepository.getById(sampleId))
+                    .followedUp(false)
                     .build());
             checkedOutSample.setLastModifiedOn(OffsetDateTime.now());
             checkedOutSamples.add(checkedOutSample);

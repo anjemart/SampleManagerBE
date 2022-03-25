@@ -19,6 +19,7 @@ create table if not exists checked_out_sample(
     id int GENERATED ALWAYS AS IDENTITY,
     sample_id int,
     customer_id int,
+    followed_up boolean,
     created_on timestamptz Default now(),
     last_modified_on timestamptz Default now()
 );
